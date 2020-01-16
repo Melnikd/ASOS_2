@@ -5,21 +5,27 @@ import org.openqa.selenium.support.FindBy;
 import pages.BasePage;
 
 public class MalePage extends BasePage {
-
-    @FindBy(xpath = "//div[@data-pagetitle='Men']")
+    @FindBy(xpath = "//a[@data-testid='men-floor']")
     private WebElement pageTitleMen;
 
     public MalePage() {
-        super("https://www.asos.com/us/men/");
+        super();
     }
 
-    public static MalePage openMalePage(){
+    public MalePage(String url) {
+        super(url);
+    }
+
+    public static MalePage openMalePage() {
+        return new MalePage("https://www.asos.com/us/men/");
+    }
+
+    public static MalePage initMalePage() {
         return new MalePage();
     }
 
-    public boolean findElementPageTitleMen(){
-        return  pageTitleMen.isDisplayed();
-
+    public boolean findElementPageTitleMen() {
+        return pageTitleMen.isDisplayed();
     }
-}
 
+}

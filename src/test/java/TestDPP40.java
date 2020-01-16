@@ -7,7 +7,7 @@ public class TestDPP40 extends BaseTest {
     @Test
     public void goToPageMans(){
 
-        assertTrue(FemalePage.openPageFemale().clickFieldMale().findElementPageTitleMen(),"Test pas");
+        assertTrue(FemalePage.openFemalePage().clickFieldMale().findElementPageTitleMen(),"Test pas");
     }
 
 
