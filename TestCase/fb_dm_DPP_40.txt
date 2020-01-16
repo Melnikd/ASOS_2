@@ -1,0 +1,13 @@
+Acceptance Criteria:
+
+If, when accessing the site, the user is on the female page,
+ then when clicking on the "male" section in the upper left corner, he should go to the male page
+
+ Steps
+
+ 1. Go to the site https://www.asos.com/us/women/
+ 2. top in the header click on the field "man"
+
+ Expected Result
+
+ Go to https://www.asos.com/us/men/
