@@ -1,0 +1,13 @@
+Acceptance Criteria:
+
+If, when accessing the site, the user is on the masculine page,
+ then when clicking on the “feminine” section in the upper left corner, he should go to the feminine page
+
+Steps
+
+ 1. Go to the site https://www.asos.com/us/men/
+ 2. top in the header click on the field "woman"
+
+ Expected Result
+
+ Go to https://www.asos.com/us/women/

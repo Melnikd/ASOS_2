@@ -7,9 +7,13 @@ import pages.BasePage;
 public class FemalePage extends BasePage {
 
     @FindBy(xpath = "//a[@class='TO7hyVB _3B0kHbC _3AH1eDT']")
-    private WebElement fieldMens;
+    private WebElement fieldMale;
 
-    public FemalePage(){
+    @FindBy(xpath = "//a[@class='_24SZgSx _6DZZlcW']") //"//a[@class='_24SZgSx _6DZZlcW and @href='https://www.asos.com/us/men']
+    private WebElement isItFemalePageLocator;
+
+
+  public FemalePage(){
         super();
     }
 
@@ -27,7 +31,12 @@ public class FemalePage extends BasePage {
     }
 
     public MalePage clickFieldMale(){
-        fieldMens.click();
+        fieldMale.click();
         return MalePage.initMalePage();
     }
+
+    public boolean isItFemalePageLocatorFind(){
+      return isItFemalePageLocator.isDisplayed();
+    }
+
 }
