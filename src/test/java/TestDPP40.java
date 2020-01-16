@@ -5,7 +5,7 @@ import static org.testng.Assert.assertTrue;
 
 public class TestDPP40 extends BaseTest {
     @Test
-    public void goToPageMans(){
+    public void goToMalePage(){
 
         assertTrue(FemalePage.openFemalePage().clickFieldMale().findElementPageTitleMen(),"Test pas");
     }
