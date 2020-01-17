@@ -1,0 +1,25 @@
+
+
+Acceptance Criteria:
+
+the user should be able to enter data in all fields in the registration form
+
+
+Steps
+
+ 1. Go to the site https://my.asos.com/identity/register?lang=en-US&store=US&country=US&keyStoreDataversion=jqvkhhb-21&returnUrl=https%3A%2F%2Fwww.asos.com%2Fus%2Fmen%2F
+ 2. Enter arbitrary values in the fields: 1) EMAIL ADDRESS
+                                          2) FIRST NAME
+                                          3) LAST NAME
+                                          4) PASSWORD
+ 3. Make sure that fields 5, 6, 7 (DATE OF BIRTH) are clickable :
+                                                  5) Day
+                                                  6) Month
+                                                  7) Year
+
+
+ Expected Result
+
+ All fields in the form are user-accessible for input / selection / clickable
+
+
