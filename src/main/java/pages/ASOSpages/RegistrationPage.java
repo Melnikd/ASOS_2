@@ -28,6 +28,8 @@ public class RegistrationPage extends BasePage {
     @FindBy(xpath = "//select[@id='BirthYear']")
     private WebElement fieldBirthYear;
 
+    @FindBy(xpath = "//input[@id='register']")
+    private WebElement buttonSubmit;
 
     public RegistrationPage(){
         super();
