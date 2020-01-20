@@ -1,0 +1,11 @@
+Acceptance Criteria:
+
+in the form of entering your personal account there should be a field "forgot your password?"
+
+should be able to go to the password reset page when you click on the "forgot password?"
+
+Steps :
+
+
+
+Expected Results :
