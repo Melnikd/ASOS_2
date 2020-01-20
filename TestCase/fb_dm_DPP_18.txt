@@ -1,0 +1,32 @@
+Acceptance Criteria:
+
+to register, be sure to fill out the following fields:
+
+-E-mail address
+
+-Username
+
+-Surname
+
+-Password (must be 10 characters or more)
+
+-Date of birth (minimum age for registration 16 years)
+
+registration must be completed after filling in all required fields and then clicking the register button
+
+
+Steps
+
+1. Go to the site https://my.asos.com/identity/register?lang=en-US&store=US&country=US&keyStoreDataversion=jqvkhhb-21&returnUrl=https%3A%2F%2Fwww.asos.com%2Fus%2Fmen%2F
+2. Enter valid values in the fields     : 1) EMAIL ADDRESS (tapova2718@it-smart.org)
+                                          2) FIRST NAME (Adam)
+                                          3) LAST NAME (Adams)
+                                          4) PASSWORD (must be 10 characters or more) (a1s2d3f4g5h6)
+3. Enter valid values in the fields :
+                                      5) Day (15)
+                                      6) Month (06)
+                                      7) Year (1998)
+
+
+
+ Expected Result

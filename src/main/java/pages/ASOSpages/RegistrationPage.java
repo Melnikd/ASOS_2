@@ -28,6 +28,8 @@ public class RegistrationPage extends BasePage {
     @FindBy(xpath = "//select[@id='BirthYear']")
     private WebElement fieldBirthYear;
 
+    @FindBy(xpath = "//input[@id='register']")
+    private WebElement buttonSubmit;
 
     public RegistrationPage(){
         super();
@@ -91,6 +93,43 @@ public class RegistrationPage extends BasePage {
         return true;
 
     }
+
+    public RegistrationPage inputEmail(){
+        fieldEmail.sendKeys("tapova2718@it-smart.org" );
+        return this;
+    }
+
+    public RegistrationPage inputName(){
+        fieldFirstName.sendKeys("Adam");
+        return this;
+    }
+
+    public RegistrationPage inputLastName(){
+        fieldLastName.sendKeys("Adams");
+        return this;
+    }
+
+    public RegistrationPage inputPassword(){
+        fieldPassword.sendKeys("a1s2d3f4g5h6");
+        return this;
+    }
+
+    public RegistrationPage inputBirthDay(){
+        fieldBirthDay.sendKeys("15");
+        return this;
+    }
+
+    public RegistrationPage inputBirthMonth(){
+        fieldBirthMonth.sendKeys("06");
+        return this;
+    }
+
+    public RegistrationPage inputBirthYear(){
+        fieldBirthYear.sendKeys("1998");
+        return this;
+    }
+
+
 
 
 
