@@ -12,6 +12,12 @@ public class FemalePage extends BasePage {
     @FindBy(xpath = "//a[@class='_24SZgSx _6DZZlcW']") //"//a[@class='_24SZgSx _6DZZlcW and @href='https://www.asos.com/us/men']
     private WebElement isItFemalePageLocator;
 
+    @FindBy(xpath = "//span[@type='accountUnfilled']")
+    private WebElement fieldAccount;
+
+    @FindBy(xpath = "//a[@data-testid='signin-link']")
+    private WebElement fieldSignIn;
+
 
   public FemalePage(){
         super();
@@ -37,6 +43,16 @@ public class FemalePage extends BasePage {
 
     public boolean isItFemalePageLocatorFind(){
       return isItFemalePageLocator.isDisplayed();
+    }
+
+    public FemalePage clickFieldAccount(){
+      fieldAccount.click();
+      return this;
+    }
+
+    public SignInPage clickFieldSignIn(){
+      fieldSignIn.click();
+      return SignInPage.initSignInPage();
     }
 
 }

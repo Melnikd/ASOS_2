@@ -43,7 +43,7 @@ public class RegistrationPage extends BasePage {
         return  new RegistrationPage("https://my.asos.com/identity/register?lang=en-US&store=US&country=US&keyStoreDataversion=jqvkhhb-21&returnUrl=https%3A%2F%2Fwww.asos.com%2Fus%2Fmen%2F");
     }
 
-    public  RegistrationPage initRegistrationPage(){
+    public static RegistrationPage initRegistrationPage(){
         return new RegistrationPage();
     }
 
