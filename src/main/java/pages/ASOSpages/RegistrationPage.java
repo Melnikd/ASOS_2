@@ -14,76 +14,80 @@ public class RegistrationPage extends BasePage {
     private WebElement fieldFirstName;
 
     @FindBy(xpath = "//input[@id='LastName']")
-    private  WebElement fieldLastName;
+    private WebElement fieldLastName;
 
     @FindBy(xpath = "//input[@id='Password']")
     private WebElement fieldPassword;
 
     @FindBy(xpath = "//select[@id='BirthDay']")
-    private  WebElement fieldBirthDay;
+    private WebElement fieldBirthDay;
 
     @FindBy(xpath = "//select[@id='BirthMonth']")
-    private  WebElement fieldBirthMonth;
+    private WebElement fieldBirthMonth;
 
     @FindBy(xpath = "//select[@id='BirthYear']")
     private WebElement fieldBirthYear;
 
 
-    public RegistrationPage(){
+    public RegistrationPage() {
         super();
     }
 
-    public  RegistrationPage(String url){
+    public RegistrationPage(String url) {
         super(url);
     }
 
-    public  static  RegistrationPage openRegistrationPage(){
-        return  new RegistrationPage("https://my.asos.com/identity/register?lang=en-US&store=US&country=US&keyStoreDataversion=jqvkhhb-21&returnUrl=https%3A%2F%2Fwww.asos.com%2Fus%2Fmen%2F");
+    public static RegistrationPage openRegistrationPage() {
+        return new RegistrationPage("https://my.asos.com/identity/register?lang=en-US&store=US&country=US&keyStoreDataversion=jqvkhhb-21&returnUrl=https%3A%2F%2Fwww.asos.com%2Fus%2Fmen%2F");
     }
 
-    public  RegistrationPage initRegistrationPage(){
+    public RegistrationPage initRegistrationPage() {
         return new RegistrationPage();
     }
 
-    public RegistrationPage fieldEmailFillIn(){
+    public RegistrationPage fieldEmailFillIn() {
         fieldEmail.sendKeys("email@email.com");
         return this;
     }
 
-    public RegistrationPage fieldFirstNameFillIn(){
+    public RegistrationPage fieldFirstNameFillIn() {
         fieldFirstName.sendKeys("Name");
         return this;
     }
 
-    public RegistrationPage fieldLastNameFieldIn(){
+    public RegistrationPage fieldLastNameFieldIn() {
         fieldLastName.sendKeys("Last");
         return this;
     }
 
-    public RegistrationPage fieldPasswordFullIn(){
-        fieldPassword.sendKeys("12345678");
+    public RegistrationPage fieldPasswordFullIn(String value) {
+        fieldPassword.sendKeys(value);
         return this;
     }
 
-    public boolean fieldBirthDayIsClick(){
-        return  fieldBirthDay.isEnabled();
+    public String getPasswordValue() {
+        return fieldPassword.getText();
     }
 
-    public boolean fieldBirthMonthIsClick(){
+    public boolean fieldBirthDayIsClick() {
+        return fieldBirthDay.isEnabled();
+    }
+
+    public boolean fieldBirthMonthIsClick() {
         return fieldBirthMonth.isEnabled();
     }
 
-    public boolean fieldBirthYearIsClick(){
+    public boolean fieldBirthYearIsClick() {
         return fieldBirthYear.isEnabled();
     }
 
-    public boolean isRegistrationFirst4FieldFullIn(){
+    public boolean isRegistrationFirst4FieldFullIn() {
         try {
-            RegistrationPage.openRegistrationPage()
-                    .fieldEmailFillIn().
-                    fieldFirstNameFillIn()
-                    .fieldLastNameFieldIn()
-                    .fieldPasswordFullIn();
+//            RegistrationPage.openRegistrationPage()
+//                    .fieldEmailFillIn()
+//                    .fieldFirstNameFillIn()
+//                    .fieldLastNameFieldIn()
+//                    .fieldPasswordFullIn();
         } catch (Exception e) {
             e.printStackTrace();
             return false;
@@ -91,10 +95,6 @@ public class RegistrationPage extends BasePage {
         return true;
 
     }
-
-
-
-
 
 
 }
