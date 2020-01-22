@@ -1,8 +1,16 @@
 package pages.ASOSpages;
 
+import jdk.internal.org.objectweb.asm.tree.analysis.Value;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 import pages.BasePage;
+
+import java.util.*;
+import java.text.*;
+
+import java.util.SplittableRandom;
+
 
 public class RegistrationPage extends BasePage {
 
@@ -28,6 +36,9 @@ public class RegistrationPage extends BasePage {
     @FindBy(xpath = "//select[@id='BirthYear']")
     private WebElement fieldBirthYear;
 
+    @FindBy(xpath = "//button[@class='reveal hidden qa-reveal']")
+    private WebElement buttonShow;
+
 
     public RegistrationPage() {
         super();
@@ -45,18 +56,18 @@ public class RegistrationPage extends BasePage {
         return new RegistrationPage();
     }
 
-    public RegistrationPage fieldEmailFillIn() {
-        fieldEmail.sendKeys("email@email.com");
+    public RegistrationPage fieldEmailFillIn( String value) {
+        fieldEmail.sendKeys(value);
         return this;
     }
 
-    public RegistrationPage fieldFirstNameFillIn() {
-        fieldFirstName.sendKeys("Name");
+    public RegistrationPage fieldFirstNameFillIn(String value) {
+        fieldFirstName.sendKeys(value);
         return this;
     }
 
-    public RegistrationPage fieldLastNameFieldIn() {
-        fieldLastName.sendKeys("Last");
+    public RegistrationPage fieldLastNameFieldIn(String value) {
+        fieldLastName.sendKeys(value);
         return this;
     }
 
@@ -66,22 +77,57 @@ public class RegistrationPage extends BasePage {
     }
 
     public String getPasswordValue() {
-        return fieldPassword.getText();
+        return fieldPassword.getAttribute("value");
     }
 
-    public boolean fieldBirthDayIsClick() {
-        return fieldBirthDay.isEnabled();
+    public String getEmailValue(){
+        return fieldEmail.getAttribute("value");
     }
 
-    public boolean fieldBirthMonthIsClick() {
-        return fieldBirthMonth.isEnabled();
+    public String getFirstNameValue(){
+        return  fieldFirstName.getAttribute("value");
     }
 
-    public boolean fieldBirthYearIsClick() {
-        return fieldBirthYear.isEnabled();
+    public  String getLastNameValue(){
+        return fieldLastName.getAttribute("value");
     }
 
-    public boolean isRegistrationFirst4FieldFullIn() {
+    public RegistrationPage fieldBirthDaySetValue(String value) {
+         fieldBirthDay.sendKeys(value);
+         return this;
+    }
+
+    public String getBirthDayValue(){
+        return fieldBirthDay.getAttribute("value");
+    }
+
+    public RegistrationPage fieldBirthMonthSetValue( String value) {
+         fieldBirthMonth.sendKeys(value);
+         return this;
+    }
+
+    public String getBirthMonthValue(){
+        String number = fieldBirthMonth.getAttribute("value");
+        GregorianCalendar date = new GregorianCalendar();
+        date.set(Calendar.MONTH, Integer.parseInt(number)-1);
+        DateFormat fmt = DateFormat.getDateInstance(DateFormat.FULL);
+        String str = fmt.format(date.getTime());
+        StringTokenizer stz = new StringTokenizer(str," ");
+        stz.nextToken();
+        str = stz.nextToken();
+        return str;
+    }
+
+    public RegistrationPage setFieldBirthYear(String value) {
+         fieldBirthYear.sendKeys(value);
+         return this;
+    }
+
+    public String getBirthYear(){
+       return fieldBirthYear.getAttribute("value");
+    }
+
+   /* public boolean isRegistrationFirst4FieldFullIn() {
         try {
 //            RegistrationPage.openRegistrationPage()
 //                    .fieldEmailFillIn()
@@ -95,6 +141,8 @@ public class RegistrationPage extends BasePage {
         return true;
 
     }
+
+    */
 
 
 }
