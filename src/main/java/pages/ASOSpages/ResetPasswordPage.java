@@ -13,7 +13,7 @@ public class ResetPasswordPage extends BasePage {
     }
 
     public ResetPasswordPage openResetPasswordPage(){
-        return  FemalePage.openFemalePage().clickFieldSignIn().clickFieldForgotPassword();
+        return SignInPage.openSignInPage().clickFieldForgotPassword() ;
     }
 
 }

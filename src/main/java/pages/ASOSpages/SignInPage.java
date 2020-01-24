@@ -22,8 +22,13 @@ public class SignInPage extends BasePage {
         super();
     }
 
+
     public static SignInPage initSignInPage(){
         return new SignInPage();
+    }
+
+    public static SignInPage openSignInPage(){
+        return FemalePage.openFemalePage().clickFieldSignIn();
     }
 
     public SignInPage inputFieldEmailAddress(){
@@ -46,7 +51,7 @@ public class SignInPage extends BasePage {
 
     public ResetPasswordPage clickFieldForgotPassword(){
         fieldForgotPassword.click();
-        return new ResetPasswordPage();
+        return this;
     }
 
 }
