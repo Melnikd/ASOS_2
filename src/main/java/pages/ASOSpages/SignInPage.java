@@ -51,7 +51,7 @@ public class SignInPage extends BasePage {
 
     public ResetPasswordPage clickFieldForgotPassword(){
         fieldForgotPassword.click();
-        return this;
+        return ResetPasswordPage.initResetPasswordPage();
     }
 
 }
