@@ -1,8 +1,16 @@
 package pages.ASOSpages;
 
+import jdk.internal.org.objectweb.asm.tree.analysis.Value;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 import pages.BasePage;
+
+import java.util.*;
+import java.text.*;
+
+import java.util.SplittableRandom;
+
 
 public class RegistrationPage extends BasePage {
 
@@ -14,78 +22,120 @@ public class RegistrationPage extends BasePage {
     private WebElement fieldFirstName;
 
     @FindBy(xpath = "//input[@id='LastName']")
-    private  WebElement fieldLastName;
+    private WebElement fieldLastName;
 
     @FindBy(xpath = "//input[@id='Password']")
     private WebElement fieldPassword;
 
     @FindBy(xpath = "//select[@id='BirthDay']")
-    private  WebElement fieldBirthDay;
+    private WebElement fieldBirthDay;
 
     @FindBy(xpath = "//select[@id='BirthMonth']")
-    private  WebElement fieldBirthMonth;
+    private WebElement fieldBirthMonth;
 
     @FindBy(xpath = "//select[@id='BirthYear']")
     private WebElement fieldBirthYear;
 
+    @FindBy(xpath = "//button[@class='reveal hidden qa-reveal']")
+    private WebElement buttonShow;
+
     @FindBy(xpath = "//input[@id='register']")
     private WebElement buttonSubmit;
 
-    public RegistrationPage(){
+    public RegistrationPage() {
         super();
     }
 
-    public  RegistrationPage(String url){
+    public RegistrationPage(String url) {
         super(url);
     }
 
-    public  static  RegistrationPage openRegistrationPage(){
-        return  new RegistrationPage("https://my.asos.com/identity/register?lang=en-US&store=US&country=US&keyStoreDataversion=jqvkhhb-21&returnUrl=https%3A%2F%2Fwww.asos.com%2Fus%2Fmen%2F");
+    public static RegistrationPage openRegistrationPage() {
+        return new RegistrationPage("https://my.asos.com/identity/register?lang=en-US&store=US&country=US&keyStoreDataversion=jqvkhhb-21&returnUrl=https%3A%2F%2Fwww.asos.com%2Fus%2Fmen%2F");
     }
 
-    public static RegistrationPage initRegistrationPage(){
+    public static RegistrationPage initRegistrationPage() {
         return new RegistrationPage();
     }
 
-    public RegistrationPage fieldEmailFillIn(){
-        fieldEmail.sendKeys("email@email.com");
+    public RegistrationPage fieldEmailFillIn(String value) {
+        fieldEmail.sendKeys(value);
         return this;
     }
 
-    public RegistrationPage fieldFirstNameFillIn(){
-        fieldFirstName.sendKeys("Name");
+    public RegistrationPage fieldFirstNameFillIn(String value) {
+        fieldFirstName.sendKeys(value);
         return this;
     }
 
-    public RegistrationPage fieldLastNameFieldIn(){
-        fieldLastName.sendKeys("Last");
+    public RegistrationPage fieldLastNameFieldIn(String value) {
+        fieldLastName.sendKeys(value);
         return this;
     }
 
-    public RegistrationPage fieldPasswordFullIn(){
-        fieldPassword.sendKeys("12345678");
+    public RegistrationPage fieldPasswordFullIn(String value) {
+        fieldPassword.sendKeys(value);
         return this;
     }
 
-    public boolean fieldBirthDayIsClick(){
-        return  fieldBirthDay.isEnabled();
+    public String getPasswordValue() {
+        return fieldPassword.getAttribute("value");
     }
 
-    public boolean fieldBirthMonthIsClick(){
-        return fieldBirthMonth.isEnabled();
+    public String getEmailValue() {
+        return fieldEmail.getAttribute("value");
     }
 
-    public boolean fieldBirthYearIsClick(){
-        return fieldBirthYear.isEnabled();
+    public String getFirstNameValue() {
+        return fieldFirstName.getAttribute("value");
     }
 
-    public boolean isRegistrationFirst4FieldFullIn(){
+    public String getLastNameValue() {
+        return fieldLastName.getAttribute("value");
+    }
+
+    public RegistrationPage fieldBirthDaySetValue(String value) {
+        fieldBirthDay.sendKeys(value);
+        return this;
+    }
+
+    public String getBirthDayValue() {
+        return fieldBirthDay.getAttribute("value");
+    }
+
+    public RegistrationPage fieldBirthMonthSetValue(String value) {
+        fieldBirthMonth.sendKeys(value);
+        return this;
+    }
+
+    public String getBirthMonthValue() {
+        String number = fieldBirthMonth.getAttribute("value");
+        GregorianCalendar date = new GregorianCalendar();
+        date.set(Calendar.MONTH, Integer.parseInt(number) - 1);
+        DateFormat fmt = DateFormat.getDateInstance(DateFormat.FULL);
+        String str = fmt.format(date.getTime());
+        StringTokenizer stz = new StringTokenizer(str, " ");
+        stz.nextToken();
+        str = stz.nextToken();
+        return str;
+    }
+
+    public RegistrationPage setFieldBirthYear(String value) {
+        fieldBirthYear.sendKeys(value);
+        return this;
+    }
+
+    public String getBirthYear() {
+        return fieldBirthYear.getAttribute("value");
+    }
+
+   /* public boolean isRegistrationFirst4FieldFullIn() {
         try {
-            RegistrationPage.openRegistrationPage()
-                    .fieldEmailFillIn().
-                    fieldFirstNameFillIn()
-                    .fieldLastNameFieldIn()
-                    .fieldPasswordFullIn();
+//            RegistrationPage.openRegistrationPage()
+//                    .fieldEmailFillIn()
+//                    .fieldFirstNameFillIn()
+//                    .fieldLastNameFieldIn()
+//                    .fieldPasswordFullIn();
         } catch (Exception e) {
             e.printStackTrace();
             return false;
@@ -94,46 +144,8 @@ public class RegistrationPage extends BasePage {
 
     }
 
-    public RegistrationPage inputEmail(){
-        fieldEmail.sendKeys("tapova2718@it-smart.org" );
-        return this;
-    }
 
-    public RegistrationPage inputName(){
-        fieldFirstName.sendKeys("Adam");
-        return this;
-    }
-
-    public RegistrationPage inputLastName(){
-        fieldLastName.sendKeys("Adams");
-        return this;
-    }
-
-    public RegistrationPage inputPassword(){
-        fieldPassword.sendKeys("a1s2d3f4g5h6");
-        return this;
-    }
-
-    public RegistrationPage inputBirthDay(){
-        fieldBirthDay.sendKeys("15");
-        return this;
-    }
-
-    public RegistrationPage inputBirthMonth(){
-        fieldBirthMonth.sendKeys("06");
-        return this;
-    }
-
-    public RegistrationPage inputBirthYear(){
-        fieldBirthYear.sendKeys("1998");
-        return this;
-    }
-
-
-
-
-
-
+*/
 
 
 }

@@ -9,7 +9,6 @@ public class DriverFactory {
         String s = System.getProperty("os.name");
         if (s.contains("Linux")) {
             System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver_linux78");
-
         } else if (s.contains("Windows")) {
             System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver_win32");
         } else if (s.contains("Mac")) {

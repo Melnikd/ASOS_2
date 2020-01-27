@@ -22,6 +22,9 @@ public class SignInPage extends BasePage {
         super();
     }
 
+    private SignInPage (String url){
+        super(url);
+    }
 
     public static SignInPage initSignInPage(){
         return new SignInPage();
@@ -31,14 +34,22 @@ public class SignInPage extends BasePage {
         return FemalePage.openFemalePage().clickFieldSignIn();
     }
 
-    public SignInPage inputFieldEmailAddress(){
-        fieldEmailAddress.sendKeys("diana.melnyk@nure.ua");
+    public SignInPage inputFieldEmailAddress(String email){
+        fieldEmailAddress.sendKeys(email);
         return this;
     }
-    public SignInPage inputFieldPassword(){
-        fieldPassword.sendKeys("1234567890");
+    public String getEmailAddress(){
+       return fieldEmailAddress.getAttribute("value");
+    }
+    public SignInPage inputFieldPassword(String password){
+        fieldPassword.sendKeys(password);
         return this;
     }
+
+    public String getPasswordValue(){
+        return fieldPassword.getAttribute("value");
+    }
+
     public AccountPage clickButtonSignIn(){
         buttonSignIn.click();
         return AccountPage.initAccountPage();
