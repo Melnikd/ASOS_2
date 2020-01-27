@@ -1,0 +1,17 @@
+
+Acceptance Criteria:
+
+-should be able to enter data login and password
+
+
+Steps:
+
+1. Go to the site  https://my.asos.com/identity/login?signin=3ac849830bdcb549fb36b0679e352dc7
+2. Enter valid values in the fields     : 1) EMAIL ADDRESS (diana.melnyk@nure.ua)
+                                          2) PASSWORD (must be 10 characters or more) (1234567890)
+3. Click button "sign in"
+
+Expected Result:
+
+The page should open https://my.asos.com/my-account?country=US&keyStoreDataversion=jqvkhhb-21&lang=en-US&nlid=nav%20header&store=US
+

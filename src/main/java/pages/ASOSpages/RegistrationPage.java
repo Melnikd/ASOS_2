@@ -39,6 +39,8 @@ public class RegistrationPage extends BasePage {
     @FindBy(xpath = "//button[@class='reveal hidden qa-reveal']")
     private WebElement buttonShow;
 
+    @FindBy(xpath = "//input[@id='register']")
+    private WebElement buttonSubmit;
 
     public RegistrationPage() {
         super();
@@ -52,11 +54,11 @@ public class RegistrationPage extends BasePage {
         return new RegistrationPage("https://my.asos.com/identity/register?lang=en-US&store=US&country=US&keyStoreDataversion=jqvkhhb-21&returnUrl=https%3A%2F%2Fwww.asos.com%2Fus%2Fmen%2F");
     }
 
-    public RegistrationPage initRegistrationPage() {
+    public static RegistrationPage initRegistrationPage() {
         return new RegistrationPage();
     }
 
-    public RegistrationPage fieldEmailFillIn( String value) {
+    public RegistrationPage fieldEmailFillIn(String value) {
         fieldEmail.sendKeys(value);
         return this;
     }
@@ -80,51 +82,51 @@ public class RegistrationPage extends BasePage {
         return fieldPassword.getAttribute("value");
     }
 
-    public String getEmailValue(){
+    public String getEmailValue() {
         return fieldEmail.getAttribute("value");
     }
 
-    public String getFirstNameValue(){
-        return  fieldFirstName.getAttribute("value");
+    public String getFirstNameValue() {
+        return fieldFirstName.getAttribute("value");
     }
 
-    public  String getLastNameValue(){
+    public String getLastNameValue() {
         return fieldLastName.getAttribute("value");
     }
 
     public RegistrationPage fieldBirthDaySetValue(String value) {
-         fieldBirthDay.sendKeys(value);
-         return this;
+        fieldBirthDay.sendKeys(value);
+        return this;
     }
 
-    public String getBirthDayValue(){
+    public String getBirthDayValue() {
         return fieldBirthDay.getAttribute("value");
     }
 
-    public RegistrationPage fieldBirthMonthSetValue( String value) {
-         fieldBirthMonth.sendKeys(value);
-         return this;
+    public RegistrationPage fieldBirthMonthSetValue(String value) {
+        fieldBirthMonth.sendKeys(value);
+        return this;
     }
 
-    public String getBirthMonthValue(){
+    public String getBirthMonthValue() {
         String number = fieldBirthMonth.getAttribute("value");
         GregorianCalendar date = new GregorianCalendar();
-        date.set(Calendar.MONTH, Integer.parseInt(number)-1);
+        date.set(Calendar.MONTH, Integer.parseInt(number) - 1);
         DateFormat fmt = DateFormat.getDateInstance(DateFormat.FULL);
         String str = fmt.format(date.getTime());
-        StringTokenizer stz = new StringTokenizer(str," ");
+        StringTokenizer stz = new StringTokenizer(str, " ");
         stz.nextToken();
         str = stz.nextToken();
         return str;
     }
 
     public RegistrationPage setFieldBirthYear(String value) {
-         fieldBirthYear.sendKeys(value);
-         return this;
+        fieldBirthYear.sendKeys(value);
+        return this;
     }
 
-    public String getBirthYear(){
-       return fieldBirthYear.getAttribute("value");
+    public String getBirthYear() {
+        return fieldBirthYear.getAttribute("value");
     }
 
    /* public boolean isRegistrationFirst4FieldFullIn() {
@@ -142,7 +144,8 @@ public class RegistrationPage extends BasePage {
 
     }
 
-    */
+
+*/
 
 
 }
