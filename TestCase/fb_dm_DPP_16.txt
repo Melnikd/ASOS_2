@@ -6,10 +6,13 @@ Acceptance Criteria:
 
 Steps:
 
-1. Go to the site  https://my.asos.com/identity/login?signin=3ac849830bdcb549fb36b0679e352dc7
-2. Enter valid values in the fields     : 1) EMAIL ADDRESS (diana.melnyk@nure.ua)
+1. Go to the site  https://www.asos.com/us/women/
+
+2. Click button sig in
+
+3. Enter valid values in the fields     : 1) EMAIL ADDRESS (diana.melnyk@nure.ua)
                                           2) PASSWORD (must be 10 characters or more) (1234567890)
-3. Click button "sign in"
+4. Click button "sign in"
 
 Expected Result:
 
