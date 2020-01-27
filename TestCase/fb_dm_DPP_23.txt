@@ -1,0 +1,14 @@
+Acceptance Criteria:
+
+after clicking on the add to basket button, the product should be displayed in the basket
+the product that was previously added to the basket should be displayed in the basket after adding a new product
+
+1.Test1
+    1.Go to Female/Male page
+    2. Select some product (click button "shop now", go to page with this product, click at this product again)
+    3. Add this product to cart (select size(if it need), click button "Add to cart")
+    4. View cart
+    5. Find in to cart product , wih select at 3-4 steps
+
+Expected result : item , with selected at 3-4 steps should be displayed in  the cart
+

@@ -26,6 +26,9 @@ public class FemalePage extends BasePage {
     //*[@id="chrome-sticky-header"]/div[1]/div/ul[2]/li[3]/a/span
 //"//span[@]type='bagUnfilled'"
 
+    @FindBy(xpath = "//a[@href='/us/women/ctas/fashion-online-10/cat/?cid=13508&ctaref=shop|newseasondresses|ww_hp_1']")
+    private WebElement dressElementToBuy;
+
 
   public FemalePage(){
         super();
@@ -66,6 +69,11 @@ public class FemalePage extends BasePage {
 
     public boolean findFieldCart(){
       return fieldCart.isDisplayed();
+    }
+
+    public DressesPage clickDresses(){
+       dressElementToBuy.click();
+       return new DressesPage().initDressesPage();
     }
 
 }
