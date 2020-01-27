@@ -20,6 +20,11 @@ public class FemalePage extends BasePage {
     private WebElement fieldSignIn;
   //  <a class="_1336dMe _1uUU2Co _1336dMe _1uUU2Co" href="https://my.asos.com/my-account?lang=en-US&amp;store=US&amp;country=US&amp;keyStoreDataversion=jqvkhhb-21"
  //   data-testid="signin-link" tabindex="-1">Sign In</a>
+    @FindBy(xpath ="//span[@type='bagUnfilled']" )
+    private WebElement fieldCart;
+   // <span type="bagUnfilled" class="AckDUvD -rhP1cz gBrrjX4 _2nHArcS"></span>
+    //*[@id="chrome-sticky-header"]/div[1]/div/ul[2]/li[3]/a/span
+//"//span[@]type='bagUnfilled'"
 
 
   public FemalePage(){
@@ -57,6 +62,10 @@ public class FemalePage extends BasePage {
       fieldAccount.click();
       fieldSignIn.click();
       return SignInPage.initSignInPage();
+    }
+
+    public boolean findFieldCart(){
+      return fieldCart.isDisplayed();
     }
 
 }

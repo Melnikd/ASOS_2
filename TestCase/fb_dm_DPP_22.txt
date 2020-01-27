@@ -1,0 +1,9 @@
+Acceptance Criteria:
+
+the shopping cart icon should be displayed in the upper right corner
+
+Steps :
+1.Go to page Female()/ Male()
+2. Find cart icon in the upper right corner
+
+Execute results : cart icon should be displayed
